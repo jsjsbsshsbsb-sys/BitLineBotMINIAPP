@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>BitLine — Разработка ботов</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- LOADER -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-logo">
+                <span class="loader-icon">⚡</span>
+                <span class="loader-text">BitLine</span>
+            </div>
+            <div class="loader-bar">
+                <div class="loader-bar-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- APP -->
+    <div class="app" id="app">
+
+        <!-- HEADER -->
+        <header class="header">
+            <div class="header-content">
+                <div class="header-logo">
+                    <div class="header-logo-icon">⚡</div>
+                    <div class="header-logo-text">
+                        <span class="header-brand">BitLine</span>
+                        <span class="header-tagline">Digital Agency</span>
+                    </div>
+                </div>
+                <div class="header-badge">
+                    <span class="badge-dot"></span>
+                    <span>Онлайн</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- SCREENS -->
+        <div class="screens">
+
+            <!-- SCREEN: HOME -->
+            <div class="screen active" id="screen-home">
+
+                <!-- HERO -->
+                <div class="hero">
+                    <div class="hero-bg">
+                        <div class="hero-circle hero-circle-1"></div>
+                        <div class="hero-circle hero-circle-2"></div>
+                        <div class="hero-circle hero-circle-3"></div>
+                    </div>
+                    <div class="hero-content">
+                        <div class="hero-tag">🚀 Профессиональная разработка</div>
+                        <h1 class="hero-title">Создаём цифровые продукты под ключ</h1>
+                        <p class="hero-subtitle">Telegram-боты, сайты и приложения для вашего бизнеса</p>
+                        <button class="btn btn-primary hero-btn" onclick="navigateTo('screen-catalog')">
+                            <span>Смотреть услуги</span>
+                            <span class="btn-arrow">→</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- STATS -->
+                <div class="stats-row">
+                    <div class="stat-card">
+                        <span class="stat-number">150+</span>
+                        <span class="stat-label">Проектов</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">98%</span>
+                        <span class="stat-label">Довольных клиентов</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">3 года</span>
+                        <span class="stat-label">На рынке</span>
+                    </div>
+                </div>
+
+                <!-- SERVICES PREVIEW -->
+                <div class="section">
+                    <div class="section-header">
+                        <h2 class="section-title">Наши услуги</h2>
+                        <button class="section-link" onclick="navigateTo('screen-catalog')">Все →</button>
+                    </div>
+                    <div class="services-grid">
+                        <div class="service-card" onclick="navigateTo('screen-bots')">
+                            <div class="service-icon">🤖</div>
+                            <div class="service-info">
+                                <span class="service-name">Telegram-боты</span>
+                                <span class="service-price">от 1 000 ₽</span>
+                            </div>
+                            <div class="service-arrow">›</div>
+                        </div>
+                        <div class="service-card" onclick="showComingSoon()">
+                            <div class="service-icon">🌐</div>
+                            <div class="service-info">
+                                <span class="service-name">Веб-сайты</span>
+                                <span class="service-price">Скоро</span>
+                            </div>
+                            <div class="service-arrow">›</div>
+                        </div>
+                        <div class="service-card" onclick="showComingSoon()">
+                            <div class="service-icon">📱</div>
+                            <div class="service-info">
+                                <span class="service-name">Приложения</span>
+                                <span class="service-price">Скоро</span>
+                            </div>
+                            <div class="service-arrow">›</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- WHY US -->
+                <div class="section">
+                    <h2 class="section-title">Почему BitLine?</h2>
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <div class="feature-icon">✅</div>
+                            <div class="feature-text">
+                                <span class="feature-title">Высокое качество</span>
+                                <span class="feature-desc">Чистый и поддерживаемый код</span>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">⚡</div>
+                            <div class="feature-text">
+                                <span class="feature-title">Быстрые сроки</span>
+                                <span class="feature-desc">Сдаём в оговорённые сроки</span>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🛡</div>
+                            <div class="feature-text">
+                                <span class="feature-title">Гарантия</span>
+                                <span class="feature-desc">Поддержка после запуска</span>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">💬</div>
+                            <div class="feature-text">
+                                <span class="feature-title">Связь 24/7</span>
+                                <span class="feature-desc">Всегда на связи с клиентом</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- SCREEN: CATALOG -->
+            <div class="screen" id="screen-catalog">
+                <div class="page-header">
+                    <button class="back-btn" onclick="navigateTo('screen-home')">
+                        <span>‹</span>
+                    </button>
+                    <h2 class="page-title">Услуги</h2>
+                </div>
+
+                <div class="catalog-list">
+
+                    <div class="catalog-card" onclick="navigateTo('screen-bots')">
+                        <div class="catalog-card-icon">🤖</div>
+                        <div class="catalog-card-body">
+                            <span class="catalog-card-title">Telegram-боты</span>
+                            <span class="catalog-card-desc">Боты любой сложности для вашего бизнеса</span>
+                            <span class="catalog-card-price">от 1 000 ₽</span>
+                        </div>
+                        <div class="catalog-card-arrow">›</div>
+                    </div>
+
+                    <div class="catalog-card catalog-card-soon" onclick="showComingSoon()">
+                        <div class="catalog-card-icon">🌐</div>
+                        <div class="catalog-card-body">
+                            <span class="catalog-card-title">Веб-сайты</span>
+                            <span class="catalog-card-desc">Landing, корпоративные, интернет-магазины</span>
+                            <div class="soon-badge">Скоро</div>
+                        </div>
+                        <div class="catalog-card-arrow">›</div>
+                    </div>
+
+                    <div class="catalog-card catalog-card-soon" onclick="showComingSoon()">
+                        <div class="catalog-card-icon">📱</div>
+                        <div class="catalog-card-body">
+                            <span class="catalog-card-title">Мобильные приложения</span>
+                            <span class="catalog-card-desc">iOS, Android, кроссплатформенные</span>
+                            <div class="soon-badge">Скоро</div>
+                        </div>
+                        <div class="catalog-card-arrow">›</div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- SCREEN: BOTS -->
+            <div class="screen" id="screen-bots">
+                <div class="page-header">
+                    <button class="back-btn" onclick="navigateTo('screen-catalog')">
+                        <span>‹</span>
+                    </button>
+                    <h2 class="page-title">Telegram-боты</h2>
+                </div>
+
+                <div class="bots-list">
+
+                    <div class="product-card" onclick="navigateTo('screen-product-basic')">
+                        <div class="product-card-header">
+                            <div class="product-card-icon">🤖</div>
+                            <div class="product-card-badge">Популярное</div>
+                        </div>
+                        <h3 class="product-card-title">Бот без Mini App</h3>
+                        <p class="product-card-desc">Полнофункциональный Telegram-бот с базой данных и админ-панелью</p>
+                        <div class="product-card-features">
+                            <span class="product-feature">✓ База данных</span>
+                            <span class="product-feature">✓ Админ-панель</span>
+                            <span class="product-feature">✓ Уведомления</span>
+                            <span class="product-feature">✓ Поддержка 1 мес.</span>
+                        </div>
+                        <div class="product-card-footer">
+                            <span class="product-price">1 000 ₽</span>
+                            <span class="product-duration">3–5 дней</span>
+                        </div>
+                    </div>
+
+                    <div class="product-card product-card-premium" onclick="navigateTo('screen-product-miniapp')">
+                        <div class="product-card-header">
+                            <div class="product-card-icon">🚀</div>
+                            <div class="product-card-badge product-card-badge-premium">Премиум</div>
+                        </div>
+                        <h3 class="product-card-title">Бот с Mini App</h3>
+                        <p class="product-card-desc">Бот с современным веб-интерфейсом внутри Telegram</p>
+                        <div class="product-card-features">
+                            <span class="product-feature">✓ Mini App интерфейс</span>
+                            <span class="product-feature">✓ Расширенная аналитика</span>
+                            <span class="product-feature">✓ Интеграция платежей</span>
+                            <span class="product-feature">✓ Поддержка 2 мес.</span>
+                        </div>
+                        <div class="product-card-footer">
+                            <span class="product-price">2 500 ₽</span>
+                            <span class="product-duration">7–10 дней</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- SCREEN: PRODUCT BASIC -->
+            <div class="screen" id="screen-product-basic">
+                <div class="page-header">
+                    <button class="back-btn" onclick="navigateTo('screen-bots')">
+                        <span>‹</span>
+                    </button>
+                    <h2 class="page-title">Бот без Mini App</h2>
+                </div>
+
+                <div class="product-detail">
+                    <div class="product-detail-hero">
+                        <div class="product-detail-icon">🤖</div>
+                        <div class="product-detail-price">1 000 ₽</div>
+                        <div class="product-detail-duration">Срок: 3–5 рабочих дней</div>
+                    </div>
+
+                    <div class="detail-section">
+                        <h3 class="detail-section-title">Что входит в стоимость</h3>
+                        <div class="detail-features">
+                            <div class="detail-feature">
+                                <span class="detail-feature-icon">✅</span>
+                                <span>Полностью рабочий Telegram-бот</span>
+                            </div>
+                            <div class="detail-feature">
+                                <span class="detail-feature-icon">✅</span>
+                                <span>Интеграция с базой данных</span>
+                            </div>
+                            <div class="detail-feature">
+                                <span class="detail-feature-icon">✅</span>
+                                <span>Удобная админ-панель</span>
+                            </div>
+                            <div class="detail-feature">
+                                <span class="detail-feature-icon">✅</span>
+                                <span>Система уведомлений</span>
+                            </div>
+                            <div class="detail-feature">
+                                <span class="detail-feature-icon">✅</span>
+                                <span>Базовая аналитика</span>
+                            </div>
+                            <div class="detail-feature">
+                                <span class="detail-feature-icon">✅</span>
+                                <span>Техническая поддержка 1 месяц</span>
+                            </div>
+                            <div class="detail-feature">
+                                <span class="detail-feature-icon">✅</span>
+                                <span>Деплой на сервер</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="detail-section">
+                        <h3 class="detail-section-title">Стек технологий</h3>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">aiogram 3.x</span>
+                            <span class="tech-tag">SQLite</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary btn-order" onclick="startOrder('basic')">
+                        <span>📝 Оформить заказ</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- SCREEN: PRODUCT MINIAPP -->
+            <div class="screen" id="screen-product-miniapp">
+                <div class="page-header">
+                    <button class="back-btn" onclick="navigateTo('screen-bots')">
+                        <span>‹</span>
+                    </button>
+                    <h2 class="page-title">Бот с Mini App</h2>
+                </div>
+
+                <div class="product-detail">
+                    <div class="product-detail-hero product-detail-hero-premium">
+                        <div class="product-detail-icon">🚀</div>
+                        <div class="product-detail-price">2 500 ₽</div>
+                        <div class="product-detail-duration">Срок: 7–10 рабочих дней</div>
+                    </div>
+
+                    <div class="detail-section">
+                        <h3 class="detail-section-title">Что входит в стоимость</h3>
+                        <div class="detail-features">
+                            <div class="detail-feature">
+                                <span class="detail-feature-icon">✅</span>
+                                <span>Бот + современный Mini App</span>
+                            </div>
+                            <div class="detail-feature">
+                                <span class="detail-feature-icon">✅</span>
+                                <span>Веб-интерфейс на React / Vue</span>
+                            </div>
+                            <div class="detail-feature">
+                                <span class="detail-feature-icon">✅</span>
+                                <span>Полная база данных</span>
+                            </div>
+                            <div class="detail-feature">
+                                <span class="detail-feature-icon">✅</span>
+                                <span>Расширенная аналитика</span>
+                            </div>
+                            <div class="detail-feature">
+                                <span class="detail-feature-icon">✅</span>
+                                <span>Интеграция платёжных систем</span>
+                            </div>
+                            <div class="detail-feature">
+                                <span class="detail-feature-icon">✅</span>
+                                <span>Техническая поддержка 2 месяца</span>
+                            </div>
+                            <div class="detail-feature">
+                                <span class="detail-feature-icon">✅</span>
+                                <span>Деплой на сервер</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="detail-section">
+                        <h3 class="detail-section-title">Стек технологий</h3>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">aiogram 3.x</span>
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Docker</span>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-premium btn-order" onclick="startOrder('miniapp')">
+                        <span>📝 Оформить заказ</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- SCREEN: ORDER -->
+            <div class="screen" id="screen-order">
+                <div class="page-header">
+                    <button class="back-btn" id="order-back-btn">
+                        <span>‹</span>
+                    </button>
+                    <h2 class="page-title">Оформление заказа</h2>
+                </div>
+
+                <div class="order-form">
+
+                    <div class="order-summary" id="order-summary">
+                        <div class="order-summary-icon" id="order-summary-icon">🤖</div>
+                        <div class="order-summary-info">
+                            <span class="order-summary-title" id="order-summary-title">Бот без Mini App</span>
+                            <span class="order-summary-price" id="order-summary-price">1 000 ₽</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Описание проекта *</label>
+                        <textarea
+                            class="form-textarea"
+                            id="order-description"
+                            placeholder="Опишите функционал будущего бота максимально подробно. Чем подробнее — тем точнее мы реализуем ваш проект..."
+                            rows="6"
+                        ></textarea>
+                        <span class="form-hint" id="description-counter">Минимум 10 символов</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Контакт для связи</label>
+                        <input
+                            type="text"
+                            class="form-input"
+                            id="order-contact"
+                            placeholder="Telegram, Email или телефон"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Срочность</label>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="urgency" value="standard" checked>
+                                <span class="radio-box"></span>
+                                <span class="radio-label">Стандартно</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="urgency" value="urgent">
+                                <span class="radio-box"></span>
+                                <span class="radio-label">Срочно (+50%)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary btn-order" id="submit-order-btn" onclick="submitOrder()">
+                        <span>Продолжить к оплате →</span>
+                    </button>
+
+                </div>
+            </div>
+
+            <!-- SCREEN: PAYMENT -->
+            <div class="screen" id="screen-payment">
+                <div class="page-header">
+                    <button class="back-btn" onclick="navigateTo('screen-order')">
+                        <span>‹</span>
+                    </button>
+                    <h2 class="page-title">Оплата</h2>
+                </div>
+
+                <div class="payment-content">
+
+                    <div class="payment-amount-card">
+                        <span class="payment-label">К оплате</span>
+                        <span class="payment-amount" id="payment-amount">1 000 ₽</span>
+                    </div>
+
+                    <div class="payment-methods">
+                        <h3 class="payment-methods-title">Способ оплаты</h3>
+
+                        <div class="payment-method active" onclick="selectPayment(this, 'card')">
+                            <span class="payment-method-icon">💳</span>
+                            <span class="payment-method-name">Банковская карта</span>
+                            <span class="payment-method-check">✓</span>
+                        </div>
+
+                        <div class="payment-method" onclick="selectPayment(this, 'ymoney')">
+                            <span class="payment-method-icon">💛</span>
+                            <span class="payment-method-name">ЮMoney</span>
+                            <span class="payment-method-check">✓</span>
+                        </div>
+
+                        <div class="payment-method" onclick="selectPayment(this, 'crypto')">
+                            <span class="payment-method-icon">₿</span>
+                            <span class="payment-method-name">Криптовалюта</span>
+                            <span class="payment-method-check">✓</span>
+                        </div>
+                    </div>
+
+                    <div class="payment-details" id="payment-details">
+                        <div class="payment-detail-card">
+                            <span class="payment-detail-label">Номер карты</span>
+                            <span class="payment-detail-value">1234 5678 9012 3456</span>
+                        </div>
+                        <div class="payment-detail-card">
+                            <span class="payment-detail-label">Получатель</span>
+                            <span class="payment-detail-value">BitLine Development</span>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary btn-order" onclick="confirmPayment()">
+                        <span>✅ Я оплатил — проверить</span>
+                    </button>
+
+                    <p class="payment-note">
+                        После подтверждения оплаты менеджер свяжется с вами в течение 15 минут
+                    </p>
+
+                </div>
+            </div>
+
+            <!-- SCREEN: SUCCESS -->
+            <div class="screen" id="screen-success">
+                <div class="success-content">
+                    <div class="success-animation">
+                        <div class="success-circle">
+                            <span class="success-icon">✅</span>
+                        </div>
+                        <div class="success-ripple"></div>
+                    </div>
+                    <h2 class="success-title">Заказ принят!</h2>
+                    <p class="success-desc">
+                        Ваша заявка отправлена менеджерам.<br>
+                        Мы свяжемся с вами в течение <strong>15 минут</strong>.
+                    </p>
+                    <div class="success-order-num">
+                        Номер заявки: <strong id="success-order-num">#1001</strong>
+                    </div>
+                    <button class="btn btn-primary" onclick="navigateTo('screen-home')">
+                        На главную
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- BOTTOM NAV -->
+    <nav class="bottom-nav" id="bottom-nav">
+        <button class="nav-item active" onclick="navTo('screen-home', this)">
+            <span class="nav-icon">🏠</span>
+            <span class="nav-label">Главная</span>
+        </button>
+        <button class="nav-item" onclick="navTo('screen-catalog', this)">
+            <span class="nav-icon">🛍</span>
+            <span class="nav-label">Услуги</span>
+        </button>
+        <button class="nav-item" onclick="showAbout()">
+            <span class="nav-icon">ℹ️</span>
+            <span class="nav-label">О нас</span>
+        </button>
+    </nav>
+
+    <!-- MODAL -->
+    <div class="modal-overlay" id="modal-overlay" onclick="closeModal()">
+        <div class="modal" id="modal" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <span class="modal-title" id="modal-title">Уведомление</span>
+                <button class="modal-close" onclick="closeModal()">✕</button>
+            </div>
+            <div class="modal-body" id="modal-body"></div>
+            <button class="btn btn-primary modal-btn" onclick="closeModal()">Понятно</button>
+        </div>
+    </div>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast"></div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
